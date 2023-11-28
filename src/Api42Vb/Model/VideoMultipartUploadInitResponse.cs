@@ -29,7 +29,7 @@ namespace Api42Vb.Model
     /// Video Mutlipart Upload Init response object
     /// </summary>
     [DataContract(Name = "VideoMultipartUploadInitResponse")]
-    public partial class VideoMultipartUploadInitResponse : IEquatable<VideoMultipartUploadInitResponse>, IValidatableObject
+    public partial class VideoMultipartUploadInitResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VideoMultipartUploadInitResponse" /> class.
@@ -99,76 +99,6 @@ namespace Api42Vb.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as VideoMultipartUploadInitResponse);
-        }
-
-        /// <summary>
-        /// Returns true if VideoMultipartUploadInitResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of VideoMultipartUploadInitResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(VideoMultipartUploadInitResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.ChunkSize == input.ChunkSize ||
-                    this.ChunkSize.Equals(input.ChunkSize)
-                ) && 
-                (
-                    this.FileId == input.FileId ||
-                    (this.FileId != null &&
-                    this.FileId.Equals(input.FileId))
-                ) && 
-                (
-                    this.FileKey == input.FileKey ||
-                    (this.FileKey != null &&
-                    this.FileKey.Equals(input.FileKey))
-                ) && 
-                (
-                    this.Parts == input.Parts ||
-                    this.Parts != null &&
-                    input.Parts != null &&
-                    this.Parts.SequenceEqual(input.Parts)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.ChunkSize.GetHashCode();
-                if (this.FileId != null)
-                {
-                    hashCode = (hashCode * 59) + this.FileId.GetHashCode();
-                }
-                if (this.FileKey != null)
-                {
-                    hashCode = (hashCode * 59) + this.FileKey.GetHashCode();
-                }
-                if (this.Parts != null)
-                {
-                    hashCode = (hashCode * 59) + this.Parts.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

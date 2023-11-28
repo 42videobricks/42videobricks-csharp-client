@@ -29,7 +29,7 @@ namespace Api42Vb.Model
     /// Webhook properties object
     /// </summary>
     [DataContract(Name = "WebhookProperties")]
-    public partial class WebhookProperties : IEquatable<WebhookProperties>, IValidatableObject
+    public partial class WebhookProperties : IValidatableObject
     {
         /// <summary>
         /// Defines EventType
@@ -124,71 +124,6 @@ namespace Api42Vb.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as WebhookProperties);
-        }
-
-        /// <summary>
-        /// Returns true if WebhookProperties instances are equal
-        /// </summary>
-        /// <param name="input">Instance of WebhookProperties to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(WebhookProperties input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
-                ) && 
-                (
-                    this.Token == input.Token ||
-                    (this.Token != null &&
-                    this.Token.Equals(input.Token))
-                ) && 
-                (
-                    this.EventType == input.EventType ||
-                    this.EventType != null &&
-                    input.EventType != null &&
-                    this.EventType.SequenceEqual(input.EventType)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Url != null)
-                {
-                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
-                }
-                if (this.Token != null)
-                {
-                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
-                }
-                if (this.EventType != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventType.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

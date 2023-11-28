@@ -29,7 +29,7 @@ namespace Api42Vb.Model
     /// Video Object list
     /// </summary>
     [DataContract(Name = "VideoList")]
-    public partial class VideoList : IEquatable<VideoList>, IValidatableObject
+    public partial class VideoList : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VideoList" /> class.
@@ -101,68 +101,6 @@ namespace Api42Vb.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as VideoList);
-        }
-
-        /// <summary>
-        /// Returns true if VideoList instances are equal
-        /// </summary>
-        /// <param name="input">Instance of VideoList to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(VideoList input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Offset == input.Offset ||
-                    this.Offset.Equals(input.Offset)
-                ) && 
-                (
-                    this.Limit == input.Limit ||
-                    this.Limit.Equals(input.Limit)
-                ) && 
-                (
-                    this.Total == input.Total ||
-                    this.Total.Equals(input.Total)
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Offset.GetHashCode();
-                hashCode = (hashCode * 59) + this.Limit.GetHashCode();
-                hashCode = (hashCode * 59) + this.Total.GetHashCode();
-                if (this.Data != null)
-                {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

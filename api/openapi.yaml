@@ -1423,12 +1423,8 @@ paths:
               $ref: '#/components/schemas/PlaylistProperties'
         required: true
       responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Playlist'
-          description: Playlist Updated
+        "202":
+          description: Video update accepted
         "400":
           content:
             application/json:
@@ -2297,7 +2293,6 @@ components:
         transcoding:
           description: total of transcoding second since the begining of the month
           example: 15715.23
-          format: float
           type: number
         hosting:
           description: total of hosting second since the begining of the month
@@ -2307,7 +2302,6 @@ components:
           description: total of delivery (stream) second since the begining of the
             month
           example: 171523.34
-          format: double
           type: number
         drm:
           description: total of delivery (stream) second since the begining of the
@@ -2461,8 +2455,7 @@ components:
       description: Video Properties Object
       example:
         children:
-        - K01iUXB4MlB4M1VFWExkdA==
-        - K01iUXB4MlB4M1VFWHNOQQ==
+        - "{{videoId}}"
         name: My playlist name
         description: My playlist description
       properties:
@@ -2479,8 +2472,7 @@ components:
         children:
           description: ordered list of video Id in the playlist
           example:
-          - K01iUXB4MlB4M1VFWExkdA==
-          - K01iUXB4MlB4M1VFWHNOQQ==
+          - "{{videoId}}"
           items:
             type: string
           type: array

@@ -29,7 +29,7 @@ namespace Api42Vb.Model
     /// part signed url object
     /// </summary>
     [DataContract(Name = "VideoMultipartUploadFinalize_parts_inner")]
-    public partial class VideoMultipartUploadFinalizePartsInner : IEquatable<VideoMultipartUploadFinalizePartsInner>, IValidatableObject
+    public partial class VideoMultipartUploadFinalizePartsInner : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VideoMultipartUploadFinalizePartsInner" /> class.
@@ -79,57 +79,6 @@ namespace Api42Vb.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as VideoMultipartUploadFinalizePartsInner);
-        }
-
-        /// <summary>
-        /// Returns true if VideoMultipartUploadFinalizePartsInner instances are equal
-        /// </summary>
-        /// <param name="input">Instance of VideoMultipartUploadFinalizePartsInner to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(VideoMultipartUploadFinalizePartsInner input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.PartNumber == input.PartNumber ||
-                    this.PartNumber.Equals(input.PartNumber)
-                ) && 
-                (
-                    this.ETag == input.ETag ||
-                    (this.ETag != null &&
-                    this.ETag.Equals(input.ETag))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.PartNumber.GetHashCode();
-                if (this.ETag != null)
-                {
-                    hashCode = (hashCode * 59) + this.ETag.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

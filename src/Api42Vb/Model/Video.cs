@@ -29,7 +29,7 @@ namespace Api42Vb.Model
     /// Video Object
     /// </summary>
     [DataContract(Name = "Video")]
-    public partial class Video : IEquatable<Video>, IValidatableObject
+    public partial class Video : IValidatableObject
     {
         /// <summary>
         /// Status of the video : * &#39;REQUESTED&#39;: video as been submited, waiting for its creation * &#39;CREATED&#39;: video has been created and file can be uploaded          * &#39;TRANSCODING&#39;: video is unvailable because still in the creation  &amp; in encoding process * &#39;TRANSCODING_ERROR&#39;: video is unvailable because the encoding failed  * &#39;AVAILABLE&#39;: video is ready to be stream
@@ -144,7 +144,7 @@ namespace Api42Vb.Model
         /// tags list linked to video
         /// </summary>
         /// <value>tags list linked to video</value>
-        /// <example>[&quot;MyTag&quot;]</example>
+        /// <example>[MyTag]</example>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
@@ -223,124 +223,6 @@ namespace Api42Vb.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Video);
-        }
-
-        /// <summary>
-        /// Returns true if Video instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Video to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Video input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.VarPublic == input.VarPublic ||
-                    this.VarPublic.Equals(input.VarPublic)
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.Duration == input.Duration ||
-                    this.Duration.Equals(input.Duration)
-                ) && 
-                (
-                    this.Ctime == input.Ctime ||
-                    this.Ctime.Equals(input.Ctime)
-                ) && 
-                (
-                    this.Mtime == input.Mtime ||
-                    this.Mtime.Equals(input.Mtime)
-                ) && 
-                (
-                    this.Assets == input.Assets ||
-                    (this.Assets != null &&
-                    this.Assets.Equals(input.Assets))
-                ) && 
-                (
-                    this.Metas == input.Metas ||
-                    this.Metas != null &&
-                    input.Metas != null &&
-                    this.Metas.SequenceEqual(input.Metas)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.VarPublic.GetHashCode();
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                hashCode = (hashCode * 59) + this.Duration.GetHashCode();
-                hashCode = (hashCode * 59) + this.Ctime.GetHashCode();
-                hashCode = (hashCode * 59) + this.Mtime.GetHashCode();
-                if (this.Assets != null)
-                {
-                    hashCode = (hashCode * 59) + this.Assets.GetHashCode();
-                }
-                if (this.Metas != null)
-                {
-                    hashCode = (hashCode * 59) + this.Metas.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

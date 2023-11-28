@@ -29,7 +29,7 @@ namespace Api42Vb.Model
     /// Video Assets Object
     /// </summary>
     [DataContract(Name = "VideoAssets")]
-    public partial class VideoAssets : IEquatable<VideoAssets>, IValidatableObject
+    public partial class VideoAssets : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VideoAssets" /> class.
@@ -101,79 +101,6 @@ namespace Api42Vb.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as VideoAssets);
-        }
-
-        /// <summary>
-        /// Returns true if VideoAssets instances are equal
-        /// </summary>
-        /// <param name="input">Instance of VideoAssets to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(VideoAssets input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Thumbnail == input.Thumbnail ||
-                    (this.Thumbnail != null &&
-                    this.Thumbnail.Equals(input.Thumbnail))
-                ) && 
-                (
-                    this.Player == input.Player ||
-                    (this.Player != null &&
-                    this.Player.Equals(input.Player))
-                ) && 
-                (
-                    this.Stream == input.Stream ||
-                    (this.Stream != null &&
-                    this.Stream.Equals(input.Stream))
-                ) && 
-                (
-                    this.Iframe == input.Iframe ||
-                    (this.Iframe != null &&
-                    this.Iframe.Equals(input.Iframe))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Thumbnail != null)
-                {
-                    hashCode = (hashCode * 59) + this.Thumbnail.GetHashCode();
-                }
-                if (this.Player != null)
-                {
-                    hashCode = (hashCode * 59) + this.Player.GetHashCode();
-                }
-                if (this.Stream != null)
-                {
-                    hashCode = (hashCode * 59) + this.Stream.GetHashCode();
-                }
-                if (this.Iframe != null)
-                {
-                    hashCode = (hashCode * 59) + this.Iframe.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

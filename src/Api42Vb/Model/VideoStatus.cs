@@ -29,7 +29,7 @@ namespace Api42Vb.Model
     /// Video Status Object
     /// </summary>
     [DataContract(Name = "VideoStatus")]
-    public partial class VideoStatus : IEquatable<VideoStatus>, IValidatableObject
+    public partial class VideoStatus : IValidatableObject
     {
         /// <summary>
         /// Status of the video
@@ -116,57 +116,6 @@ namespace Api42Vb.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as VideoStatus);
-        }
-
-        /// <summary>
-        /// Returns true if VideoStatus instances are equal
-        /// </summary>
-        /// <param name="input">Instance of VideoStatus to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(VideoStatus input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
-                if (this.Message != null)
-                {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

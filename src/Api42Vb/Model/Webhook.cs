@@ -29,7 +29,7 @@ namespace Api42Vb.Model
     /// Webhook Object
     /// </summary>
     [DataContract(Name = "Webhook")]
-    public partial class Webhook : IEquatable<Webhook>, IValidatableObject
+    public partial class Webhook : IValidatableObject
     {
         /// <summary>
         /// Defines EventType
@@ -109,7 +109,7 @@ namespace Api42Vb.Model
         /// List of event to be notified:   * VIDEO_STATUS: Get Video object status modification notifications   Status values: REQUESTED, CREATED, TRANSCODING, TRANSCODING_ERROR, AVAILABLE, DELETED   * VIDEO_TRANSCODING_PROGRESS: Get transcoding progression notifications
         /// </summary>
         /// <value>List of event to be notified:   * VIDEO_STATUS: Get Video object status modification notifications   Status values: REQUESTED, CREATED, TRANSCODING, TRANSCODING_ERROR, AVAILABLE, DELETED   * VIDEO_TRANSCODING_PROGRESS: Get transcoding progression notifications</value>
-        /// <example>[&quot;VIDEO_STATUS&quot;,&quot;VIDEO_TRANSCODING_PROGRESS&quot;]</example>
+        /// <example>[VIDEO_STATUS, VIDEO_TRANSCODING_PROGRESS]</example>
         [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
         public List<Webhook.EventTypeEnum> EventType { get; set; }
 
@@ -162,90 +162,6 @@ namespace Api42Vb.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Webhook);
-        }
-
-        /// <summary>
-        /// Returns true if Webhook instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Webhook to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Webhook input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
-                ) && 
-                (
-                    this.Token == input.Token ||
-                    (this.Token != null &&
-                    this.Token.Equals(input.Token))
-                ) && 
-                (
-                    this.EventType == input.EventType ||
-                    this.EventType != null &&
-                    input.EventType != null &&
-                    this.EventType.SequenceEqual(input.EventType)
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Ctime == input.Ctime ||
-                    this.Ctime.Equals(input.Ctime)
-                ) && 
-                (
-                    this.Mtime == input.Mtime ||
-                    this.Mtime.Equals(input.Mtime)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Url != null)
-                {
-                    hashCode = (hashCode * 59) + this.Url.GetHashCode();
-                }
-                if (this.Token != null)
-                {
-                    hashCode = (hashCode * 59) + this.Token.GetHashCode();
-                }
-                if (this.EventType != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventType.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Ctime.GetHashCode();
-                hashCode = (hashCode * 59) + this.Mtime.GetHashCode();
-                return hashCode;
-            }
         }
 
         /// <summary>

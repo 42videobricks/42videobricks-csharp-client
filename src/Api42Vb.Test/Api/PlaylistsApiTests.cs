@@ -113,8 +113,7 @@ namespace Api42Vb.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string playlistId = null;
             //PlaylistProperties playlistProperties = null;
-            //var response = instance.UpdatePlaylistById(playlistId, playlistProperties);
-            //Assert.IsType<Playlist>(response);
+            //instance.UpdatePlaylistById(playlistId, playlistProperties);
         }
     }
 }

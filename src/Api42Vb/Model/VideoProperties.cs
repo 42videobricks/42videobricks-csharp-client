@@ -29,7 +29,7 @@ namespace Api42Vb.Model
     /// Video Properties Object
     /// </summary>
     [DataContract(Name = "VideoProperties")]
-    public partial class VideoProperties : IEquatable<VideoProperties>, IValidatableObject
+    public partial class VideoProperties : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VideoProperties" /> class.
@@ -101,76 +101,6 @@ namespace Api42Vb.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as VideoProperties);
-        }
-
-        /// <summary>
-        /// Returns true if VideoProperties instances are equal
-        /// </summary>
-        /// <param name="input">Instance of VideoProperties to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(VideoProperties input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.VarPublic == input.VarPublic ||
-                    this.VarPublic.Equals(input.VarPublic)
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.VarPublic.GetHashCode();
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

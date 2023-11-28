@@ -29,7 +29,7 @@ namespace Api42Vb.Model
     /// Video Single Upload Init response object
     /// </summary>
     [DataContract(Name = "VideoUploadInitResponse")]
-    public partial class VideoUploadInitResponse : IEquatable<VideoUploadInitResponse>, IValidatableObject
+    public partial class VideoUploadInitResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VideoUploadInitResponse" /> class.
@@ -68,52 +68,6 @@ namespace Api42Vb.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as VideoUploadInitResponse);
-        }
-
-        /// <summary>
-        /// Returns true if VideoUploadInitResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of VideoUploadInitResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(VideoUploadInitResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.SignedUrl == input.SignedUrl ||
-                    (this.SignedUrl != null &&
-                    this.SignedUrl.Equals(input.SignedUrl))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.SignedUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.SignedUrl.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

@@ -131,8 +131,8 @@ namespace Api42Vb.Api
         /// <param name="playlistId">Id of the playlist</param>
         /// <param name="playlistProperties"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Playlist</returns>
-        Playlist UpdatePlaylistById(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0);
+        /// <returns></returns>
+        void UpdatePlaylistById(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0);
 
         /// <summary>
         /// Update an existing playlist
@@ -144,8 +144,8 @@ namespace Api42Vb.Api
         /// <param name="playlistId">Id of the playlist</param>
         /// <param name="playlistProperties"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Playlist</returns>
-        ApiResponse<Playlist> UpdatePlaylistByIdWithHttpInfo(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdatePlaylistByIdWithHttpInfo(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -272,8 +272,8 @@ namespace Api42Vb.Api
         /// <param name="playlistProperties"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Playlist</returns>
-        System.Threading.Tasks.Task<Playlist> UpdatePlaylistByIdAsync(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdatePlaylistByIdAsync(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update an existing playlist
@@ -286,8 +286,8 @@ namespace Api42Vb.Api
         /// <param name="playlistProperties"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Playlist)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Playlist>> UpdatePlaylistByIdWithHttpInfoAsync(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdatePlaylistByIdWithHttpInfoAsync(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1061,11 +1061,10 @@ namespace Api42Vb.Api
         /// <param name="playlistId">Id of the playlist</param>
         /// <param name="playlistProperties"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Playlist</returns>
-        public Playlist UpdatePlaylistById(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0)
+        /// <returns></returns>
+        public void UpdatePlaylistById(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0)
         {
-            Api42Vb.Client.ApiResponse<Playlist> localVarResponse = UpdatePlaylistByIdWithHttpInfo(playlistId, playlistProperties);
-            return localVarResponse.Data;
+            UpdatePlaylistByIdWithHttpInfo(playlistId, playlistProperties);
         }
 
         /// <summary>
@@ -1075,8 +1074,8 @@ namespace Api42Vb.Api
         /// <param name="playlistId">Id of the playlist</param>
         /// <param name="playlistProperties"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Playlist</returns>
-        public Api42Vb.Client.ApiResponse<Playlist> UpdatePlaylistByIdWithHttpInfo(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public Api42Vb.Client.ApiResponse<Object> UpdatePlaylistByIdWithHttpInfo(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0)
         {
             // verify the required parameter 'playlistId' is set
             if (playlistId == null)
@@ -1126,7 +1125,7 @@ namespace Api42Vb.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Playlist>("/playlists/{playlistId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<Object>("/playlists/{playlistId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdatePlaylistById", localVarResponse);
@@ -1147,11 +1146,10 @@ namespace Api42Vb.Api
         /// <param name="playlistProperties"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Playlist</returns>
-        public async System.Threading.Tasks.Task<Playlist> UpdatePlaylistByIdAsync(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdatePlaylistByIdAsync(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Api42Vb.Client.ApiResponse<Playlist> localVarResponse = await UpdatePlaylistByIdWithHttpInfoAsync(playlistId, playlistProperties, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await UpdatePlaylistByIdWithHttpInfoAsync(playlistId, playlistProperties, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1162,8 +1160,8 @@ namespace Api42Vb.Api
         /// <param name="playlistProperties"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Playlist)</returns>
-        public async System.Threading.Tasks.Task<Api42Vb.Client.ApiResponse<Playlist>> UpdatePlaylistByIdWithHttpInfoAsync(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<Api42Vb.Client.ApiResponse<Object>> UpdatePlaylistByIdWithHttpInfoAsync(string playlistId, PlaylistProperties playlistProperties, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'playlistId' is set
             if (playlistId == null)
@@ -1214,7 +1212,7 @@ namespace Api42Vb.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Playlist>("/playlists/{playlistId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/playlists/{playlistId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

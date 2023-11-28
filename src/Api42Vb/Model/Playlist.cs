@@ -29,7 +29,7 @@ namespace Api42Vb.Model
     /// Playlist Object
     /// </summary>
     [DataContract(Name = "Playlist")]
-    public partial class Playlist : IEquatable<Playlist>, IValidatableObject
+    public partial class Playlist : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Playlist" /> class.
@@ -132,90 +132,6 @@ namespace Api42Vb.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as Playlist);
-        }
-
-        /// <summary>
-        /// Returns true if Playlist instances are equal
-        /// </summary>
-        /// <param name="input">Instance of Playlist to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(Playlist input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Children == input.Children ||
-                    this.Children != null &&
-                    input.Children != null &&
-                    this.Children.SequenceEqual(input.Children)
-                ) && 
-                (
-                    this.Ctime == input.Ctime ||
-                    this.Ctime.Equals(input.Ctime)
-                ) && 
-                (
-                    this.Mtime == input.Mtime ||
-                    this.Mtime.Equals(input.Mtime)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Children != null)
-                {
-                    hashCode = (hashCode * 59) + this.Children.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Ctime.GetHashCode();
-                hashCode = (hashCode * 59) + this.Mtime.GetHashCode();
-                return hashCode;
-            }
         }
 
         /// <summary>

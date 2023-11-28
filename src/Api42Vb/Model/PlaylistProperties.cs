@@ -29,7 +29,7 @@ namespace Api42Vb.Model
     /// Video Properties Object
     /// </summary>
     [DataContract(Name = "PlaylistProperties")]
-    public partial class PlaylistProperties : IEquatable<PlaylistProperties>, IValidatableObject
+    public partial class PlaylistProperties : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PlaylistProperties" /> class.
@@ -64,7 +64,7 @@ namespace Api42Vb.Model
         /// ordered list of video Id in the playlist
         /// </summary>
         /// <value>ordered list of video Id in the playlist</value>
-        /// <example>[&quot;K01iUXB4MlB4M1VFWExkdA&#x3D;&#x3D;&quot;,&quot;K01iUXB4MlB4M1VFWHNOQQ&#x3D;&#x3D;&quot;]</example>
+        /// <example>[&quot;{{videoId}}&quot;]</example>
         [DataMember(Name = "children", EmitDefaultValue = false)]
         public List<string> Children { get; set; }
 
@@ -90,71 +90,6 @@ namespace Api42Vb.Model
         public virtual string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
-        }
-
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as PlaylistProperties);
-        }
-
-        /// <summary>
-        /// Returns true if PlaylistProperties instances are equal
-        /// </summary>
-        /// <param name="input">Instance of PlaylistProperties to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(PlaylistProperties input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.Children == input.Children ||
-                    this.Children != null &&
-                    input.Children != null &&
-                    this.Children.SequenceEqual(input.Children)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.Children != null)
-                {
-                    hashCode = (hashCode * 59) + this.Children.GetHashCode();
-                }
-                return hashCode;
-            }
         }
 
         /// <summary>

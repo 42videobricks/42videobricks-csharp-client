@@ -406,7 +406,7 @@ catch (ApiException e)
 
 <a id="updateplaylistbyid"></a>
 # **UpdatePlaylistById**
-> Playlist UpdatePlaylistById (string playlistId, PlaylistProperties playlistProperties)
+> void UpdatePlaylistById (string playlistId, PlaylistProperties playlistProperties)
 
 Update an existing playlist
 
@@ -440,8 +440,7 @@ namespace Example
             try
             {
                 // Update an existing playlist
-                Playlist result = apiInstance.UpdatePlaylistById(playlistId, playlistProperties);
-                Debug.WriteLine(result);
+                apiInstance.UpdatePlaylistById(playlistId, playlistProperties);
             }
             catch (ApiException  e)
             {
@@ -461,10 +460,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update an existing playlist
-    ApiResponse<Playlist> response = apiInstance.UpdatePlaylistByIdWithHttpInfo(playlistId, playlistProperties);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    apiInstance.UpdatePlaylistByIdWithHttpInfo(playlistId, playlistProperties);
 }
 catch (ApiException e)
 {
@@ -483,7 +479,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**Playlist**](Playlist.md)
+void (empty response body)
 
 ### Authorization
 
@@ -498,7 +494,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Playlist Updated |  -  |
+| **202** | Video update accepted |  -  |
 | **400** | The request is invalid or incomplete |  -  |
 | **404** | The specified resource was not found |  -  |
 | **500** | Internal Server Error |  -  |
